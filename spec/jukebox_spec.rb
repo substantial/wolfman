@@ -16,4 +16,11 @@ volume: n/a   repeat: off   random: off   single: off   consume: off
     end
   end
 
+  context 'skipping the track' do
+    it 'should send the correct command to mpc' do
+      Wolfman::Jukebox.should_receive(:system).with('mpc next')
+      Wolfman::Jukebox.skip_track
+    end
+  end
+
 end
