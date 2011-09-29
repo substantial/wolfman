@@ -37,11 +37,11 @@ class Robut::Plugin::TrackControl
   #     skip
   # 
   def valid_request?(message)
-    message =~ /^skip(?:this )?(?:track)?$/i
+    message =~ /^skip/i
   end
   
   def skip_request?(message)
-    message =~ /^skip(?:this )?(?:track)?$/i
+    message =~ /^skip/i
   end
   
 end
