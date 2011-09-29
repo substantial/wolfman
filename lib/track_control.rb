@@ -11,7 +11,7 @@ class Robut::Plugin::TrackControl
       if currently_playing?
         
         if skip_request? request
-          skip_track 
+          skip_track
           reply "Skipping the #{current_track[:artist]} ~ #{current_track[:track]}"
         end
         

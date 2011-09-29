@@ -7,6 +7,7 @@ require File.expand_path(File.dirname(__FILE__) + '/lib/wolfman')
 # Plugins are handled in the order that they appear in this array.
 Robut::Plugin.plugins << Robut::Plugin::Ping
 Robut::Plugin.plugins << Robut::Plugin::TrackReporting
+Robut::Plugin.plugins << Robut::Plugin::TrackControl
 
 # Load the configuration from the YML file with the following conventions
 configuration_file = [ "wolfman.yml", ".wolfman" ].find {|filename| File.exists?(filename) }
