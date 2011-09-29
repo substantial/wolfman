@@ -5,14 +5,15 @@ class Robut::Plugin::TrackControl
   
   def handle(time, sender_nick, message)
     
-    request = process_request words(message).join(" ")
+    request = words(message).join(" ")
+    
     if sent_to_me?(message) and valid_request?(request)
     
       if currently_playing?
         
         if skip_request? request
           skip_track
-          reply "Skipping the #{current_track[:artist]} ~ #{current_track[:track]}"
+          reply "Skipping #{current_track[:artist]} ~ #{current_track[:track]}"
         end
         
       else
