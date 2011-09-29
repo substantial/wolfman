@@ -26,7 +26,7 @@ class Robut::Plugin::TrackReporting
   #     playing
   # 
   def valid_request(message)
-    message =~ /^(?:what is|what's)? ?playing$/i
+    message =~ /^(?:what is|what's)? ?playing\??$/i
   end
   
   #

@@ -15,7 +15,7 @@ describe Robut::Plugin::TrackReporting do
         }
       end
       
-      [ "what is playing", "what's playing", "playing" ].each do |message|
+      [ "what is playing?", "what's playing", "playing" ].each do |message|
         
         it "should reply with the current playing track" do
           subject.should_receive(:reply).with("Prince ~ Something Funky This House Comes")
@@ -32,7 +32,7 @@ describe Robut::Plugin::TrackReporting do
         subject.stub(:currently_playing?) { false }
       end
       
-      [ "what is playing", "what's playing", "playing" ].each do |message|
+      [ "what is playing?", "what's playing", "playing" ].each do |message|
         
         it "should reply that no music is playing" do
           subject.should_receive(:reply).with("No Music Is Playing")
