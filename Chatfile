@@ -8,9 +8,35 @@ require 'robut/storage/yaml_store'
 Robut::Plugin.plugins << Robut::Plugin::Ping
 #Robut::Plugin.plugins << Robut::Plugin::CurrentlyPlaying
 
+# Load the configuration from the YML file with the following conventions
+configuration_file = [ "wolfman.yml", ".wolfman" ].find {|filename| File.exists?(filename) }
+
+if configuration_file
+  puts %{
+================================================================================
+  Using Configuration File: #{configuration_file}
+================================================================================}
+  WolfmanConfiguration = YAML::load(File.open(configuration_file))
+else
+  puts %{
+================================================================================
+  MISSING CONFIGURATION
+--------------------------------------------------------------------------------
+
+  Wolfman expects that a configuration file contains the connection information:
+  
+  Create `wolfman.yml` or `.wolfman` in the current directory
+
+================================================================================}
+end
+
 
 # Configure the robut jabber connection and you're good to go!
 Robut::Connection.configure do |config|
+  config.jid = WolfmanConfiguration['config']['jid']
+  config.password = WolfmanConfiguration['config']['password']
+  config.nick = WolfmanConfiguration['config']['nick']
+  config.room = WolfmanConfiguration['config']['room']
   
   # Some plugins require storage
   Robut::Storage::YamlStore.file = ".robut"
