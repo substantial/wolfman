@@ -26,7 +26,7 @@ class Robut::Plugin::TrackReporting
   # @todo this is a STUB response that will be replaced with the data form the
   #   the music service for the current playing track
   # 
-  def get_current_track
+  def current_track
     { 
       :artist => 'Prince', 
       :album => 'Diamonds and Pearls', 
