@@ -1,5 +1,6 @@
 
-class Robut::Plugin::TrackControl < Robut::Plugin::Base
+class Robut::Plugin::TrackControl
+  include Robut::Plugin
   
   def handle(time, sender_nick, message)
     
