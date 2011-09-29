@@ -2,7 +2,11 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe Robut::Plugin::TrackReporting do
   
-  subject { Robut::Plugin::TrackReporting.new "no-connection" }
+  subject { 
+    connection = double("connection")
+    connection.stub_chain(:config, :nick) { "wolfman" }
+    Robut::Plugin::TrackReporting.new connection 
+  }
   
   context "when asked 'what is playing', 'what's playing', or 'playing'" do
     
@@ -15,7 +19,7 @@ describe Robut::Plugin::TrackReporting do
         }
       end
       
-      [ "what is playing?", "what's playing", "playing" ].each do |message|
+      [ "@wolfman what is playing?", "@wolfman what's playing", "@wolfman playing" ].each do |message|
         
         it "should reply with the current playing track" do
           subject.should_receive(:reply).with("Prince ~ Something Funky This House Comes")
@@ -32,7 +36,7 @@ describe Robut::Plugin::TrackReporting do
         subject.stub(:currently_playing?) { false }
       end
       
-      [ "what is playing?", "what's playing", "playing" ].each do |message|
+      [ "@wolfman what is playing?", "@wolfman what's playing", "@wolfman playing" ].each do |message|
         
         it "should reply that no music is playing" do
           subject.should_receive(:reply).with("No Music Is Playing")

@@ -3,7 +3,7 @@ class Robut::Plugin::TrackReporting
   
   def handle(time, sender_nick, message)
     
-    if valid_request(message)
+    if sent_to_me?(message) and valid_request(words(message).join(" "))
       
       if currently_playing?
         reply "#{current_track[:artist]} ~ #{current_track[:track]}"
