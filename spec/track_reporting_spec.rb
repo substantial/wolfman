@@ -9,21 +9,50 @@ describe Robut::Plugin::TrackReporting do
     context "when music is playing" do
       
       before :each do
-        subject.stub!(:currently_playing?).and_return(:true)
-        subject.stub!(:current_track).and_return(
-          :artist => 'Prince', :album => 'Diamonds and Pearls', :track => 'Something Funky This House Comes')
-        subject.stub!(:reply).with("Prince ~ Something Funky This House Comes")
+        subject.stub(:currently_playing?) { true }
+        subject.stub(:current_track) { 
+          { :artist => 'Prince', :album => 'Diamonds and Pearls', :track => 'Something Funky This House Comes' }
+        }
       end
       
       [ "what is playing", "what's playing", "playing" ].each do |message|
-
+        
         it "should reply with the current playing track" do
-          
           subject.should_receive(:reply).with("Prince ~ Something Funky This House Comes")
-          
-          subject.handle("Time","caller",message)
-
+          subject.handle(Time.now,"caller",message)
         end
+        
+      end
+      
+    end
+    
+    context "when music is not playing" do
+      
+      before :each do
+        subject.stub(:currently_playing?) { false }
+      end
+      
+      [ "what is playing", "what's playing", "playing" ].each do |message|
+        
+        it "should reply that no music is playing" do
+          subject.should_receive(:reply).with("No Music Is Playing")
+          subject.handle(Time.now,"caller",message)
+        end
+        
+      end
+
+    end
+    
+  end
+  
+  context "when asked something that is not a valid request" do
+    
+    [ 'anything else' ].each do |message|
+      
+      it "should not respond" do
+        
+        subject.should_not_receive(:reply)
+        subject.handle(Time.now,"caller",message)
         
       end
       

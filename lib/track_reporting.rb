@@ -3,15 +3,30 @@ class Robut::Plugin::TrackReporting
   
   def handle(time, sender_nick, message)
     
-    if currently_playing?
+    if valid_request(message)
       
-      reply "#{current_track[:artist]} ~ #{current_track[:track]}"
+      if currently_playing?
+        reply "#{current_track[:artist]} ~ #{current_track[:track]}"
+      else
+        reply "No Music Is Playing"
+      end
       
     else
       
     end
     
     
+  end
+  
+  #
+  # Valid request messages:
+  # 
+  #     what is playing
+  #     what's playing
+  #     playing
+  # 
+  def valid_request(message)
+    message =~ /^(?:what is|what's)? ?playing$/i
   end
   
   #
