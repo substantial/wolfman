@@ -31,9 +31,9 @@ class Robut::Plugin::TrackControl
   #
   # Valid request messages:
   # 
-  #     what is playing
-  #     what's playing
-  #     playing
+  #     skip this track
+  #     skip track
+  #     skip
   # 
   def valid_request?(message)
     message =~ /^skip(?:this )?(?:track)?$/i
