@@ -1,0 +1,21 @@
+# Require your plugins here
+require 'robut/plugin/ping'
+require 'robut/storage/yaml_store'
+#require File.expand_path(File.dirname(__FILE__) + '/lib/wolfman')
+
+# # Add the plugin classes to the Robut plugin list.
+# Plugins are handled in the order that they appear in this array.
+Robut::Plugin.plugins << Robut::Plugin::Ping
+#Robut::Plugin.plugins << Robut::Plugin::CurrentlyPlaying
+
+
+# Configure the robut jabber connection and you're good to go!
+Robut::Connection.configure do |config|
+  
+  # Some plugins require storage
+  Robut::Storage::YamlStore.file = ".robut"
+  config.store = Robut::Storage::YamlStore
+  
+  # Add a logger if you want to debug the connection
+  config.logger = Logger.new(STDOUT)
+end
