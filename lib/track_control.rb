@@ -33,15 +33,15 @@ class Robut::Plugin::TrackControl
   # Valid request messages:
   # 
   #     skip this track
-  #     skip track
   #     skip
+  #     next track
   # 
   def valid_request?(message)
-    message =~ /^skip/i
+    message =~ /^(skip|next)/i
   end
   
   def skip_request?(message)
-    message =~ /^skip/i
+    message =~ /^(skip|next)/i
   end
   
 end
