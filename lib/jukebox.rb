@@ -3,16 +3,20 @@ module Wolfman
     extend self
     
     def currently_playing?
-      true
+      mpc_result =~ /playing/m
     end
     
     def current_track
-      data = `mpc`
+      data = mpc_result
       data.split("\n").first.gsub(/-/,'~')
     end
 
     def skip_track
       system 'mpc next'
+    end
+
+    def mpc_result
+      `mpc`
     end
   end
 end
