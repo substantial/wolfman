@@ -4,8 +4,6 @@ class Robut::Plugin::TrackControl
   
   def handle(time, sender_nick, message)
     
-    
-    
   end
   
 end
