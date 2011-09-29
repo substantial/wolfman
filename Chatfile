@@ -1,12 +1,12 @@
 # Require your plugins here
 require 'robut/plugin/ping'
 require 'robut/storage/yaml_store'
-#require File.expand_path(File.dirname(__FILE__) + '/lib/wolfman')
+require File.expand_path(File.dirname(__FILE__) + '/lib/wolfman')
 
 # # Add the plugin classes to the Robut plugin list.
 # Plugins are handled in the order that they appear in this array.
 Robut::Plugin.plugins << Robut::Plugin::Ping
-#Robut::Plugin.plugins << Robut::Plugin::CurrentlyPlaying
+Robut::Plugin.plugins << Robut::Plugin::TrackReporting
 
 # Load the configuration from the YML file with the following conventions
 configuration_file = [ "wolfman.yml", ".wolfman" ].find {|filename| File.exists?(filename) }
