@@ -14,15 +14,13 @@ describe Robut::Plugin::TrackReporting do
       
       before :each do
         subject.stub(:currently_playing?) { true }
-        subject.stub(:current_track) { 
-          { :artist => 'Prince', :album => 'Diamonds and Pearls', :track => 'Something Funky This House Comes' }
-        }
+        subject.stub(:current_track) { 'Prince ~ Something Funky This House Comes' }
       end
       
       [ "@wolfman what is playing?", "@wolfman what's playing", "@wolfman playing" ].each do |message|
         
         it "should reply with the current playing track" do
-          subject.should_receive(:reply).with("Prince ~ Something Funky This House Comes")
+          subject.should_receive(:reply).with("(chewie): Prince ~ Something Funky This House Comes")
           subject.handle(Time.now,"caller",message)
         end
         

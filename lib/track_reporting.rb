@@ -1,14 +1,14 @@
 
 class Robut::Plugin::TrackReporting
   include Robut::Plugin
-  include Spotify
+  include Wolfman::Jukebox
   
   def handle(time, sender_nick, message)
     
     if sent_to_me?(message) and valid_request?(words(message).join(" "))
       
       if currently_playing?
-        reply "#{current_track[:artist]} ~ #{current_track[:track]}"
+        reply "(chewie): #{current_track}"
       else
         reply "No Music Is Playing"
       end

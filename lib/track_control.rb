@@ -1,7 +1,7 @@
 
 class Robut::Plugin::TrackControl
   include Robut::Plugin
-  include Spotify
+  include Wolfman::Jukebox
   
   def handle(time, sender_nick, message)
     
@@ -13,7 +13,7 @@ class Robut::Plugin::TrackControl
         
         if skip_request? request
           skip_track
-          reply "Skipping #{current_track[:artist]} ~ #{current_track[:track]}"
+          reply "(troll): #{current_track}"
         end
         
       else
