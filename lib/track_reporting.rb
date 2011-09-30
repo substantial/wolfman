@@ -1,4 +1,4 @@
-
+# coding: utf-8
 class Robut::Plugin::TrackReporting
   include Robut::Plugin
   include Wolfman::Jukebox
@@ -8,7 +8,7 @@ class Robut::Plugin::TrackReporting
     if sent_to_me?(message) and valid_request?(words(message).join(" "))
       
       if currently_playing?
-        reply "(chewie): #{current_track}"
+        reply "♬ #{current_track}"
       else
         reply "No Music Is Playing"
       end

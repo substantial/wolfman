@@ -1,4 +1,4 @@
-
+# coding: utf-8
 class Robut::Plugin::TrackControl
   include Robut::Plugin
   include Wolfman::Jukebox
@@ -13,7 +13,7 @@ class Robut::Plugin::TrackControl
         
         if skip_request? request
           skip_track
-          reply "(troll): #{current_track}"
+          reply "♬ #{current_track}"
         end
         
       else
