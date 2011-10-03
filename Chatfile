@@ -1,13 +1,17 @@
-# Require your plugins here
+# 
+# Robut - Plugins required here
+# 
 require 'robut/plugin/ping'
+require 'robut/plugin/rdio'
 require 'robut/storage/yaml_store'
-require File.expand_path(File.dirname(__FILE__) + '/lib/wolfman')
 
-# # Add the plugin classes to the Robut plugin list.
+#
+# Add the plugin classes to the Robut plugin list.
 # Plugins are handled in the order that they appear in this array.
+# 
 Robut::Plugin.plugins << Robut::Plugin::Ping
-Robut::Plugin.plugins << Robut::Plugin::TrackReporting
-Robut::Plugin.plugins << Robut::Plugin::TrackControl
+Robut::Plugin.plugins << Robut::Plugin::Rdio
+
 
 # Load the configuration from the YML file with the following conventions
 configuration_file = [ "wolfman.yml", ".wolfman" ].find {|filename| File.exists?(filename) }
@@ -30,6 +34,17 @@ else
 
 ================================================================================}
 end
+
+#
+# Rdio requires additional configuration information 
+# 
+Robut::Plugin::Rdio.key = WolfmanConfiguration['rdio']['key']
+Robut::Plugin::Rdio.secret = WolfmanConfiguration['rdio']['secret']
+Robut::Plugin::Rdio.host = WolfmanConfiguration['rdio']['host']
+Robut::Plugin::Rdio.port = WolfmanConfiguration['rdio']['port']
+
+Robut::Plugin::Rdio.start_server
+
 
 
 # Configure the robut jabber connection and you're good to go!
