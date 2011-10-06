@@ -44,3 +44,57 @@ rdio:
 It's normally hosted at: `http://localhost:4567`
 
 
+# Future Notes
+
+## Robut
+
+### Bug Fixes
+
+* Stop Robut from processing all the messages upon entrance
+
+### JobPlugin
+
+Define a plugin that allows for simple offline processing to take place.
+
+## Rdio Plugin
+
+* Ensure strict results
+* Remove the preview/sample versions
+* Return search results
+
+### Return search results
+
+```
+  adam    > @wolfman search Jackson 5
+  wolfman > I have 6 results
+            1. A B C
+            2. ....
+            3. ....
+ adam     > play track 3
+```
+
+## Packaging & Installation
+
+## Just the plugin
+
+  > gem install robut-wolfman
+  
+## Robut + the Plugin
+
+```
+  gem install wolfman
+```
+
+This comes with a `wolfman` executable which will interactively let the user set up the parameters for wolfman
+
+```
+  $ wolfman
+  
+    What is your API key ? (url to get it)
+    >
+    
+    What server would you like me to connect to by default?
+    >
+    
+    ...
+```
