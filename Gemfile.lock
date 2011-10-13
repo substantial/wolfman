@@ -16,6 +16,7 @@ GEM
     rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.6.0)
+    songkick (0.0.2)
     thor (0.14.6)
     xmpp4r (0.5)
 
@@ -27,3 +28,4 @@ DEPENDENCIES
   guard-rspec
   robut
   rspec
+  songkick

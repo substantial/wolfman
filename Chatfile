@@ -45,4 +45,5 @@ Robut::Connection.configure do |config|
   
   # Add a logger if you want to debug the connection
   config.logger = Logger.new(STDOUT)
+  #config.logger.level = Logger::Severity::INFO
 end
