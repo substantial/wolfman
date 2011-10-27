@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/justinweiss/robut.git
+  remote: git://github.com/substantial/robut.git
   revision: 7269b9efca4094b455060d3ec98eee9a8bcb67b5
   specs:
     robut (0.3.0)

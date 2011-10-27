@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'robut', :git => "git://github.com/justinweiss/robut.git"
+gem 'robut', :git => "git://github.com/substantial/robut.git"
 gem 'rdio'
 gem 'sinatra'
 
