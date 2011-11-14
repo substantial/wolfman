@@ -2,8 +2,8 @@
 # Robut - Plugins required here
 # 
 require 'robut/plugin/ping'
-require 'robut/plugin/rdio'
 require 'robut/storage/yaml_store'
+require 'robut-rdio'
 
 #
 # Add the plugin classes to the Robut plugin list.
