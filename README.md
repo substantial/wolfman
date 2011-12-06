@@ -27,6 +27,10 @@ config:
   password: "password"
   nick: "user nickname"
   room: "NUMBER_ROOMNAME@conf.hipchat.com"
+  
+rdio:
+  key: "YOUR_RDIO_KEY"
+  secret: "YOUR_RDIO_SECRET"
 ```
 
 **Start the Wolfman Robut**
