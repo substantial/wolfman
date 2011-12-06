@@ -1,37 +1,25 @@
 # Wolfman
 
-*Wolfman* is a Hipchat bot that employs the Robut gem to provide functionality to ask about the current playing music and making requests.
+*Wolfman* is a HipChat-powered RDIO DJ.
 
-## Interacting with Wolfman
+## Using Wolfman
 
-### Example
+The core capabilities of wolfman are provided by the [robut-rdio](https://github.com/radamant/robut-rdio) gem.  
+See that project's README for the most up-to-date list of supported commands.
 
-The following is an example conversation in Hipchat with *Wolfman Jack* in the chatroom:
+## Installing Wolfman
 
-    adam     > @wolfman what's playing?
-    wolfman  > Rolling Stones ~ Brown Sugar
+**Clone the repo and setup**
 
-    franklin > @wolfman skip this track
-    wolfman  > OK
+```
+git clone git@github.com:substantial/wolfman.git
+cd wolfman
+gem install bundler && bundle
+```
 
-### 
+**Create your .wolfman file**
 
-## Running Wolfman
-
-### MPC
-
-*Wolfman* requires that MPC is installed so that it is able to communicate with the system running MPD.
-
-   $ brew install mpc
-
-Configuring the connection information to the host running MPD
-
-   export MPD_HOST=(HOSTNAME or HOSTIP)
-
-
-### Robut
-
-Create a `.wolfman` or `wolfman.yml` file which contains the following values from Hipchat:
+Put a `.wolfman` file in the directory to which you cloned wolfman.  It should have the following structure:
 
 ```yml
 config:
@@ -41,16 +29,14 @@ config:
   room: "NUMBER_ROOMNAME@conf.hipchat.com"
 ```
 
-Start the Wolfman Robut
+**Start the Wolfman Robut**
 
-    robut Chatfile
+```
+ bundle exec robut Chatfile
+```
 
+**Open the robut-rdio webpage**
 
-## Extending Wolfman
-
-1. Look at the current extension
-2. Copy and create a new one
-3. Add the require to the `lib/wolfman.rb`
-4. Add the class to the list of behaviors loaded in the `Chatfile`
+It's normally hosted at: `http://localhost:4567`
 
 
